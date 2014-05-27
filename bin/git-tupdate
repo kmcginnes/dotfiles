@@ -1,0 +1,25 @@
+#!/bin/sh
+# hack: Merge the latest changes from the master branch into your current branch
+
+. "$(git --exec-path)/git-sh-setup"
+
+currentBranch=$(git symbolic-ref HEAD 2>/dev/null --short)
+
+if [ -z "$1" ]
+then
+	targetBranch=${currentBranch}
+else
+	targetBranch="$1"
+fi
+
+# echo "$(tput setaf 6)Stashing any current changes on branch$(tput sgr0)"
+# git stash save
+echo "$(tput setaf 6)Getting latest TFS changes into master$(tput sgr0)"
+git checkout master
+git tf pull --rebase --deep
+echo "$(tput setaf 6)Rebasing ${targetBranch} with the new changes from master$(tput sgr0)"
+git checkout ${targetBranch}
+git rebase master
+git checkout ${currentBranch}
+# echo "$(tput setaf 6)Reapplying any stashed changes$(tput sgr0)"
+# git stash pop

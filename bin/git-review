@@ -1,0 +1,15 @@
+#!/bin/sh
+# hack: Merge the latest changes from the master branch into your current branch
+
+. "$(git --exec-path)/git-sh-setup"
+
+currentBranch=$(git symbolic-ref HEAD 2>/dev/null --short)
+git difftool master..${currentBranch}
+
+# Possible replacement
+# git config --global alias.ksreview '!f() { local SHA=${1:-HEAD}; local BRANCH=${2:-master}; if [ $SHA == $BRANCH ]; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA; }; f'
+#
+# git ksreview
+# git ksreview feature-branch-name-or-sha mainline-branch-name
+# 
+# http://blackpixel.com/blog/2012/11/code-review-kaleidoscope.html

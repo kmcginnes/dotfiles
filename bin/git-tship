@@ -1,0 +1,28 @@
+#!/bin/sh
+# ship: Ship current branch to development branch
+
+. "$(git --exec-path)/git-sh-setup"
+
+if [ -z "$1" ]
+then
+	die "You must supply a message for the squashed commit"
+fi
+
+currentBranch=$(git symbolic-ref HEAD 2>/dev/null --short)
+
+if [ "${currentBranch}" == "master" ]
+then
+	die "You can not ship from master"
+fi
+
+git tupdate || { die "Updating from TFS failed"; }
+git squash "$1" || { die "Squash-merging into master failed"; }
+
+if [ -z "$2" ]
+then
+	echo "$(tput setaf 6)Checking in ${currentBranch} to TFS...$(tput sgr0)"
+	git tf checkin -m "$1" || { die "Checking in ${currentBranch} to TFS failed"; }
+else
+	echo "$(tput setaf 6)Checking in ${currentBranch} to TFS and associating to #$2...$(tput sgr0)"
+	git tf checkin -m "$1" --associate="$2" || { die "Checking in ${currentBranch} to TFS failed"; }
+fi

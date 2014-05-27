@@ -1,0 +1,54 @@
+#!/usr/bin/env ruby
+# ship: Ship current branch to development branch
+
+require 'colorize'
+
+current_branch = `git current-branch`.chomp
+abort("You can not ship from master") unless current_branch != "master"
+old_head = `git rev-parse HEAD`.chomp
+abort("Unable to get SHA1 of HEAD") unless $? == 0
+
+msg = `git stash save "Auto-stash by #{File.basename($0)} script"`
+stashed = msg !~ /^No local changes to save$/
+
+puts "Pulling latest remote changes into master".cyan
+system "git checkout master"
+system "git svn rebase"
+abort("Updating from SVN failed") unless $? == 0
+puts "Rebasing #{current_branch} with the new changes from master".cyan
+system "git checkout #{current_branch}"
+system "git rebase master"
+abort("Updating from SVN failed") unless $? == 0
+
+puts "Committing changes to SVN".cyan
+system "git svn dcommit"
+abort("Pushing to SVN failed") unless $? == 0
+
+puts "Updating master".cyan
+system "git checkout master"
+system "git svn rebase"
+
+puts "Removing #{current_branch}".cyan
+system "git branch -d #{current_branch}"
+abort("Removing #{current_branch} failed") unless $? == 0
+
+if stashed
+	puts "Recreating #{current_branch} and unstashing changes".cyan
+	system "git checkout -b #{current_branch}"
+	system "git stash pop --quiet"
+end
+
+if current_branch == "wip"
+	puts "Recreating #{current_branch}".cyan
+	system "git checkout -b #{current_branch}"
+end
+
+updated = (old_head != `git rev-parse head`.chomp)
+
+if updated
+    puts "Diffstat:".cyan
+	system "git --no-pager diff --color --stat #{old_head}.. | sed 's/^/  /'"
+
+  	puts "Log:".cyan
+  	system "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit #{old_head}.. | sed 's/^/  /'"
+end

@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+# Merge the latest changes from the master branch into your current branch
+
+require 'colorize'
+
+current_branch = `git symbolic-ref HEAD --short`.chomp
+old_head = `git rev-parse HEAD`.chomp
+abort("Unable to get SHA1 of HEAD") unless $? == 0
+
+# autostash any changes currently on branch
+msg = `git stash save "Auto-stash by #{File.basename($0)} script"`
+stashed = msg !~ /^No local changes to save$/
+
+puts "Pulling latest remote changes into master".cyan
+system "git checkout master"
+system "git svn rebase"
+puts "Rebasing #{current_branch} with the new changes from master".cyan
+system "git checkout #{current_branch}"
+system "git rebase master"
+
+updated = (old_head != `git rev-parse head`.chomp)
+
+system "git stash pop --quiet" if stashed
+
+if updated
+    puts "Diffstat:".cyan
+	system "git --no-pager diff --color --stat #{old_head}.. | sed 's/^/  /'"
+
+  	puts "Log:".cyan
+  	system "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit #{old_head}.. | sed 's/^/  /'"
+end
