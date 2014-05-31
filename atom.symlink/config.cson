@@ -13,8 +13,8 @@
     'vendor'
   ]
   'themes': [
-    'unity-ui'
-    'glacier-syntax'
+    'atom-light-ui'
+    'atom-light-syntax'
   ]
   'hideGitIgnoredFiles': true
   'disabledPackages': [
