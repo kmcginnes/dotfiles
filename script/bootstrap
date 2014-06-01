@@ -106,6 +106,9 @@ install_dotfiles
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
+  echo ''
+  echo "Elevating permissions for installation of dependencies."
+  echo "This part could take a while (approximately 5 minutes)"
   sudo -v
   info "installing dependencies"
   if source bin/dot > /tmp/dotfiles-dot 2>&1
