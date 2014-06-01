@@ -21,7 +21,7 @@ for file in ${(M)config_files:#*/path.zsh}
 do
   base_dir=${file:h:t}
   file_name=${file:t}
-  echo "${base_dir}/${file_name} [PATHS]"
+  echo "${base_dir}/${file_name} [%{$fg_bold[green]%}PATHS%{$reset_color%}]"
   source $file
 done
 
@@ -30,7 +30,7 @@ for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
   base_dir=${file:h:t}
   file_name=${file:t}
-  echo "${base_dir}/${file_name} [ZSH]"
+  echo "${base_dir}/${file_name} [%{$fg_bold[green]%}CONFIG%{$reset_color%}]"
   source $file
 done
 
@@ -43,7 +43,7 @@ for file in ${(M)config_files:#*/completion.zsh}
 do
   base_dir=${file:h:t}
   file_name=${file:t}
-  echo "${base_dir}/${file_name} [COMPLETIONS]"
+  echo "${base_dir}/${file_name} [%{$fg_bold[green]%}COMPLETIONS%{$reset_color%}]"
   source $file
 done
 
