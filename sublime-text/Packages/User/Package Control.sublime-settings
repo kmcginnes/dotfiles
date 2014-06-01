@@ -1,0 +1,15 @@
+{
+	"installed_packages":
+	[
+		"F#",
+		"Indent XML",
+		"PowerShell",
+		"Sass",
+		"Shell Turtlestein",
+		"SublimeLinter",
+		"SublimeLinter-xmllint",
+		"Theme - Centurion",
+		"Theme - Spacegray",
+		"XAML"
+	]
+}

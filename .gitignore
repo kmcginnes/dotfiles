@@ -5,6 +5,6 @@ atom.symlink/storage
 atom.symlink/themes
 atom.symlink/compile-cache
 
-sublime-text/User/Package\ Control.sublime-settings
-sublime-text/User/Package Control.last-run
+sublime-text/Packages/User/Package Control.cache/
+sublime-text/Packages/User/Package Control.last-run
 
