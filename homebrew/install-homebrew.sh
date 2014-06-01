@@ -17,6 +17,7 @@ fi
 
 # Install cask
 brew tap caskroom/cask
+brew tap caskroom/versions
 brew install brew-cask
 
 exit 0
