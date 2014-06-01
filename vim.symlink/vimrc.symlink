@@ -12,4 +12,4 @@ set backspace=indent,eol,start
 
 " color scheme
 set background=dark
-colorscheme base16-ocean
+colorscheme smyck
