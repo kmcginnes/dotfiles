@@ -8,7 +8,7 @@
 export ZSH=$HOME/.dotfiles
 
 # Update system settings
-find $ZSH -name settings.sh | while read settings ; do sh -c "${settings}" ; done
+find $ZSH \! \( -name "*.disabled" -prune \) -name "settings.sh" | while read settings ; do sh -c "${settings}" ; done
 
 # Install homebrew packages
 $ZSH/homebrew/install-homebrew.sh
