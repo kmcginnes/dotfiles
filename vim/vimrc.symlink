@@ -1,0 +1,15 @@
+" turn on syntax highlighting
+syntax on
+
+" Enable file type detection and do language-dependent indenting.
+filetype indent plugin on
+
+" turn on line numbering
+set number
+
+" Make backspace behave in a sane manner.
+set backspace=indent,eol,start
+
+" color scheme
+set background=dark
+colorscheme base16-ocean
