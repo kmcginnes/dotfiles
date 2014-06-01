@@ -15,3 +15,5 @@ svn rm http://phoenix/reposWin/Vermillion/tags/sprint_3_review
 git svn tag -m "Sprint 4 Review" -d sprint_4_review
 
 set PATH=%PATH%;Z:\Dropbox\bin
+
+find ./ -name "*.sh" -exec chmod +x {} \;
