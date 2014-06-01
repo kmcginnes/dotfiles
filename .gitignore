@@ -7,4 +7,4 @@ atom.symlink/compile-cache
 
 sublime-text/Packages/User/Package Control.cache/
 sublime-text/Packages/User/Package Control.last-run
-
+sublime-text/**/.git/
