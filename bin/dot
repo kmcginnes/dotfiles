@@ -7,12 +7,15 @@
 
 export ZSH=$HOME/.dotfiles
 
-# Set OS X defaults
-$ZSH/osx/set-defaults.sh
+# Update system settings
+find $ZSH -name settings.sh | while read settings ; do sh -c "${settings}" ; done
 
 # Install homebrew packages
-$ZSH/homebrew/install.sh
+$ZSH/homebrew/install-homebrew.sh
 
 # Upgrade homebrew
 brew update
+brew doctor
 
+# Run installers & updaters
+$ZSH/script/install
