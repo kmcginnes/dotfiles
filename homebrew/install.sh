@@ -9,7 +9,7 @@
 if test ! $(which brew)
 then
   echo "  Installing Homebrew for you."
-  sudo git clone https://github.com/Homebrew/homebrew.git /usr/local > /tmp/homebrew-install.log
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 fi
 
 # Install homebrew packages
