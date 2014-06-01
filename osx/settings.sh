@@ -22,6 +22,9 @@ sudo pmset -a standbydelay 3600
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
+# Changing Default Shell to ZSH
+chsh -s /bin/zsh
+
 # Menu bar: disable transparency
 # defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
