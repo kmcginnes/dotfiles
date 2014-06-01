@@ -12,7 +12,7 @@ then
 fi
 
 # all of our zsh files
-shopt -s extglob
+setopt extendedglob
 typeset -U config_files
 config_files=($ZSH/!(*.disabled))/*.zsh)
 
