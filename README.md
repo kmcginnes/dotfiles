@@ -66,6 +66,14 @@ There's a few special files in the hierarchy.
   your `$HOME`. This is so you can keep all of those versioned in your dotfiles
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/bootstrap`.
+- **topic/settings.sh**: Any file named `settings.sh` will get executed
+  when running `dot` or `bootstrap`. These scripts include system settings
+  for the topic at hand.
+- **topic/install.sh**: Any file named `install.sh` will get executed
+  when running `dot` or `bootstrap`. These scripts have installation
+  instructions for the topic.
+- **topic.disabled/**: Any folder (or file) marked with `*.disabled` will get 
+  ignored when running any of the scripts.
 
 ## bugs
 
@@ -75,13 +83,13 @@ said, I do use this as *my* dotfiles, so there's a good chance I may break
 something if I forget to make a check for a dependency.
 
 If you're brand-new to the project and run into any blockers, please
-[open an issue](https://github.com/holman/dotfiles/issues) on this repository
+[open an issue](https://github.com/kmcginnes/dotfiles/issues) on this repository
 and I'd love to get it fixed for you!
 
 ## thanks
 
-I forked [Ryan Bates](http://github.com/ryanb)' excellent
-[dotfiles](http://github.com/ryanb/dotfiles) for a couple years before the
+I forked [Zach Holman](http://github.com/holman)' excellent
+[dotfiles](http://github.com/holman/dotfiles) for a couple years before the
 weight of my changes and tweaks inspired me to finally roll my own. But Ryan's
 dotfiles were an easy way to get into bash customization, and then to jump ship
 to zsh a bit later. A decent amount of the code in these dotfiles stem or are
