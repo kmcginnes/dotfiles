@@ -31,3 +31,9 @@ brew cask update vmware-fusion
 
 brew cask install dropbox
 brew cask update dropbox
+
+brew cask install flux
+brew cask update flux
+
+brew cask install gfxcardstatus
+brew cask update gfxcardstatus
