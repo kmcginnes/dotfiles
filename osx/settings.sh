@@ -110,7 +110,7 @@ systemsetup -setrestartfreeze on
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 # Disable Notification Center and remove the menu bar icon
-# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
 # Disable smart quotes as they’re annoying when typing code
 # defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
@@ -360,10 +360,10 @@ defaults write com.apple.dock minimize-to-application -bool true
 #defaults write com.apple.dock persistent-apps -array ""
 
 # Don’t animate opening applications from the Dock
-# defaults write com.apple.dock launchanim -bool false
+defaults write com.apple.dock launchanim -bool false
 
 # Speed up Mission Control animations
-defaults write com.apple.dock expose-animation-duration -float 0.1
+# defaults write com.apple.dock expose-animation-duration -float 0.1
 
 # Don’t group windows by application in Mission Control
 # (i.e. use the old Exposé behavior instead)
@@ -376,18 +376,19 @@ defaults write com.apple.dashboard mcx-disabled -bool true
 defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Don’t automatically rearrange Spaces based on most recent use
-# defaults write com.apple.dock mru-spaces -bool false
+defaults write com.apple.dock mru-spaces -bool false
 
 # Remove the auto-hiding Dock delay
 # defaults write com.apple.dock autohide-delay -float 0
+
 # Remove the animation when hiding/showing the Dock
 # defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Enable the 2D Dock
-#defaults write com.apple.dock no-glass -bool true
+defaults write com.apple.dock no-glass -bool true
 
 # Automatically hide and show the Dock
-# defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide -bool true
 
 # Make Dock icons of hidden applications translucent
 # defaults write com.apple.dock showhidden -bool true
@@ -498,7 +499,8 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -stri
 ###############################################################################
 
 # Hide Spotlight tray-icon (and subsequent helper)
-#sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+
 # Disable Spotlight indexing for any volume that gets mounted and has not yet
 # been indexed before.
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
