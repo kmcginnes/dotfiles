@@ -24,3 +24,6 @@ brew cask update vlc
 
 brew cask install vmware-fusion
 brew cask update vmware-fusion
+
+brew cask install dropbox
+brew cask update dropbox
