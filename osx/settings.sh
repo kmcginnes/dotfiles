@@ -22,9 +22,6 @@ sudo pmset -a standbydelay 3600
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
-# Changing Default Shell to ZSH
-chsh -s /bin/zsh
-
 # Menu bar: disable transparency
 # defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
@@ -536,6 +533,9 @@ defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -stri
 ###############################################################################
 # Terminal & iTerm 2                                                          #
 ###############################################################################
+
+# Changing Default Shell to ZSH
+chsh -s /bin/zsh
 
 # Only use UTF-8 in Terminal.app
 # defaults write com.apple.terminal StringEncodings -array 4
