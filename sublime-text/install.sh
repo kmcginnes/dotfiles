@@ -11,4 +11,6 @@ if [ ! -e "$SUBLIME_FOLDER" ]; then
     mkdir -p "$SUBLIME_FOLDER/Packages"
 
 	ln -s "$ZSH/sublime-text/User" "$SUBLIME_FOLDER/Packages"
+
+	curl -o "$SUBLIME_FOLDER/Installed Packages/Package Control.sublime-package" https://sublime.wbond.net/Package%20Control.sublime-package
 fi
