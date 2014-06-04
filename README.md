@@ -1,4 +1,4 @@
-# holman does dotfiles: The kmcginnes edition
+# mcginnes does dotfiles
 
 ## dotfiles
 
