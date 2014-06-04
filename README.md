@@ -75,6 +75,21 @@ There's a few special files in the hierarchy.
 - **topic.disabled/**: Any folder (or file) marked with `*.disabled` will get 
   ignored when running any of the scripts.
 
+## other apps
+
+This automated script can only do so much. There's a large list of other essential
+apps that must be downloaded from teh Mac App Store.
+
+- **Apple iPhoto, Pages, Numbers, Keynote**
+- **Palua**
+- **Wunderlist**
+- **Pocket**
+- **ia Writer**
+- **Reeder**
+- **Tweetbot**
+- **Jump Desktop**
+- **FantastiCal**
+
 ## bugs
 
 I want this to work for everyone; that means when you clone it down it should
