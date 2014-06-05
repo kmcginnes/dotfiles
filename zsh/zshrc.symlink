@@ -19,18 +19,12 @@ config_files=($ZSH/(^*.disabled/)#*.zsh)
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
 do
-  base_dir=${file:h:t}
-  file_name=${file:t}
-  echo "${base_dir}/${file_name}  [ PATHS ]"
   source $file
 done
 
 # load everything but the path and completion files
 for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
-  base_dir=${file:h:t}
-  file_name=${file:t}
-  echo "${base_dir}/${file_name}  [ CONFIG ]"
   source $file
 done
 
@@ -41,9 +35,6 @@ compinit
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
 do
-  base_dir=${file:h:t}
-  file_name=${file:t}
-  echo "${base_dir}/${file_name}  [ COMPLETIONS ]"
   source $file
 done
 
