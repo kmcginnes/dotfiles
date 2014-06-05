@@ -1,14 +1,35 @@
 {
 	"color_scheme": "Packages/User/base16-ocean.dark (SL).tmTheme",
+	"ensure_newline_at_eof_on_save": true,
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db"
+	],
 	"font_size": 15.0,
 	"highlight_line": true,
-	"ignored_packages":	["Vintage"],
+	"ignored_packages":
+	[
+		"Vintage"
+	],
 	"open_files_in_new_window": false,
 	"theme": "Spacegray.sublime-theme",
-	"word_wrap": false,
-  	"ensure_newline_at_eof_on_save": true,
-
-  	// Don't show binary files in the sidebar
-    // (You are not going to edit them in any case)
-    "file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db"]
+	"word_wrap": false
 }
