@@ -9,6 +9,7 @@ git diff --name-only | grep .csproj | xargs dos2unix
 git diff --name-only | grep .config | xargs dos2unix
 
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Vermillion Vermillion
+git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/FoxBurner.Abstractions FoxBurner.Abstractions
 
 svn rm http://phoenix/reposWin/Vermillion/tags/sprint_3_review
 
