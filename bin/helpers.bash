@@ -13,7 +13,7 @@ git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/
 
 svn rm http://phoenix/reposWin/Vermillion/tags/sprint_3_review
 
-git svn tag -m "Sprint 4 Review" -d sprint_4_review
+git svn tag sprint_7_review -m "Sprint 7 Review"
 
 set PATH=%PATH%;Z:\Dropbox\bin
 
