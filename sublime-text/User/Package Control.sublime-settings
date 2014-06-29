@@ -1,12 +1,16 @@
 {
 	"installed_packages":
 	[
+		"Better CoffeeScript",
+		"Chmod",
+		"CoffeeCompile",
 		"F#",
 		"Indent XML",
 		"PowerShell",
 		"Sass",
 		"Shell Turtlestein",
 		"SublimeLinter",
+		"SublimeLinter-coffeelint",
 		"SublimeLinter-xmllint",
 		"Theme - Centurion",
 		"Theme - Spacegray",
