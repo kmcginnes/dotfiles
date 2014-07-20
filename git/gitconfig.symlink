@@ -124,6 +124,7 @@
         whitespace = nowarn
 [mergetool]
         keepBackup = false
+        prompt = false
 [difftool]
         prompt = false
 [help]
@@ -134,3 +135,15 @@
         #
         # Setting to git 2.0 default to surpress warning message
         default = simple
+[mergetool "Kaleidoscope"]
+        cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+        trustexitcode = true
+[merge]
+        tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+        cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+        tool = Kaleidoscope
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
