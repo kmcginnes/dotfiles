@@ -13,3 +13,5 @@ atom.symlink/compile-cache
 **/Package Control.ca-certs/
 
 sublime-text/**/.git/
+
+node_modules/
