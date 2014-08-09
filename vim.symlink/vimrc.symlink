@@ -13,3 +13,6 @@ set backspace=indent,eol,start
 " color scheme
 set background=dark
 colorscheme smyck
+
+" Open Marked with \m (or your preferred leader)
+:nnoremap <leader>m :silent !open -a Marked\ 2.app '%:p'<cr>
