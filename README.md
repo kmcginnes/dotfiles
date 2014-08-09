@@ -1,4 +1,4 @@
-# mcginnes does dotfiles
+# kmcginnes does dotfiles
 
 ## dotfiles
 
