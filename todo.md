@@ -17,8 +17,8 @@
 	- [ ] Theme - Smyck
 	- [ ] Plugins
 - [ ] Git
-	- [ ] .gitconfig
-	- [ ] .gitignore
+	- [x] .gitconfig
+	- [x] .gitignore
 	- [ ] git ignore command line
 - [ ] Sublime Text
 	- [ ] Preferences
