@@ -6,17 +6,13 @@ module.exports = (grunt) ->
       options:
         overwrite: true
       folders:
-        # expand: true
-        # nonull: true
-        # overwrite: true
-        src: ['**/*.symlink']
-        dest: "#{ home() }"
-        # ext: ''
-        # extdot: 'last'
+        expand: true
+        src: '**/*.symlink'
+        dest: "#{ home() }/"
         flatten: true
         rename: (dest, src) ->
           finalDest = dest + '.' + src.replace('.symlink','')
           console.log "#{src} -> #{finalDest}"
           return finalDest
 
-  grunt.loadNpmTasks 'grunt-contrib-symlink'
+  grunt.loadTasks 'tasks'
