@@ -98,6 +98,7 @@
         ki = stash --keep-index
 
         # experimental
+        wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
         ship = !$ZSH/bin/git-svn-ship
         open = !git ls-remote --get-url | sed 's/:/\\//' | sed 's/^git@/https:\\/\\//' | xargs open
         unstage = reset HEAD
@@ -109,6 +110,7 @@
         tu = tupdate
         ts = tship
         fp = format-patch --stdout
+	test = "!gi() { curl http://www.gitignore.io/api/$@ ;}; gi"
 [color]
         diff = auto
         status = auto
@@ -120,6 +122,7 @@
         autocrlf = false
         ignorecase = true
         whitespace = trailing-space,space-before-tab
+		pager = less -F -X
 [apply]
         whitespace = nowarn
 [mergetool]
