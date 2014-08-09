@@ -3,7 +3,8 @@
 hub_path=$(which hub)
 if (( $+commands[hub] ))
 then
-  alias git=$hub_path
+  # alias git=$hub_path
+  eval "$(hub alias -s)"
 fi
 
 # The rest of my fun git aliases
