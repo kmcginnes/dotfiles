@@ -1,9 +1,11 @@
 {
 	"installed_packages":
 	[
+		"auto-save",
 		"Better CoffeeScript",
 		"Chmod",
 		"CoffeeCompile",
+		"Colorcoder",
 		"F#",
 		"Indent XML",
 		"Markdown Preview",

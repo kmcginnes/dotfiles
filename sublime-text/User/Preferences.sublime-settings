@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/User/base16-ocean.dark (SL).tmTheme",
+	"color_scheme": "Packages/Colorcoder/base16-ocean.dark (SL) (Colorcode).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
@@ -23,13 +23,15 @@
 		"*.psd",
 		"*.db"
 	],
-	"font_size": 15.0,
+	"font_size": 16.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
 	"open_files_in_new_window": false,
+	"original_color_scheme": "Packages/User/base16-ocean.dark (SL).tmTheme",
 	"theme": "Spacegray.sublime-theme",
+	"translate_tabs_to_spaces": true,
 	"word_wrap": false
 }
