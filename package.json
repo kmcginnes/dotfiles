@@ -1,6 +1,7 @@
 {
   "name": "dotfiles",
   "version": "0.1.0",
+  "repository": "https://github.com/kmcginnes/dotfiles.git",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-symlink": "^0.3.0",
