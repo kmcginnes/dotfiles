@@ -8,8 +8,8 @@
 	- [ ] Z
 	- [ ] Shell Highlighting
 - [ ] Ruby
-	- [ ] RbEnv
-	- [ ] Ruby Build
+	- [x] RbEnv
+	- [x] Ruby Build
 	- [ ] Jekyll
 - [ ] Node
 	- [ ] Grunt
@@ -25,17 +25,17 @@
 	- [ ] Packages
 - [ ] Scripts
 - [ ] OS X Defaults
-- [ ] OS X Apps
-	- [ ] Alfred
-	- [ ] Sublime Text
-	- [ ] GitHub for Mac
-	- [ ] VMWare Fusion
-	- [ ] HipChat
-	- [ ] 1Password
-	- [ ] Dropbox
-	- [ ] Flux
-	- [ ] gfxCardStatus
-	- [ ] The Unarchiver
-	- [ ] VLC
-	- [ ] Google Chrome
+- [x] OS X Apps
+	- [x] Alfred
+	- [x] Sublime Text
+	- [x] GitHub for Mac
+	- [x] VMWare Fusion
+	- [x] HipChat
+	- [x] 1Password
+	- [x] Dropbox
+	- [x] Flux
+	- [x] gfxCardStatus
+	- [x] The Unarchiver
+	- [x] VLC
+	- [x] Google Chrome
 
