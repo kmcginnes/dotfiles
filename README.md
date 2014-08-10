@@ -19,10 +19,10 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 Run this:
 
 ```sh
-git clone https://github.com/kmcginnes/dotfiles.git ~/.dotfiles
-cd ~/.dotfiles
-grunt --force
+git clone https://github.com/kmcginnes/dotfiles.git ~/.dotfiles && cd ~/.dotfiles && sh ./install
 ```
+
+> __NOTE:__ If you haven't run the XCode command line installers it will popup. Once you've gone through that installation process, just re-run the command above.
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`.
