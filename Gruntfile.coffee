@@ -21,6 +21,8 @@ module.exports = (grunt) ->
         src: 'sublime-text/User'
         dest: '<%= config.sublime.path_app_support %>/Packages'
     shell:
+      theme_terminal:
+        command: 'open "osx/Smyck.terminal"'
       osx_defaults:
         command: 'source osx/settings.sh'
       sublime_package_control:
@@ -79,8 +81,6 @@ module.exports = (grunt) ->
         command: 'brew cask install font-noto-sans'
       brew_cask_font_source_code_pro:
         command: 'brew cask install font-source-code-pro'
-      theme_terminal:
-        command: 'open "osx/Smyck.terminal"'
 
   grunt.loadTasks 'tasks'
   grunt.loadNpmTasks 'grunt-shell'

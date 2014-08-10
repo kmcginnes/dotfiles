@@ -538,14 +538,14 @@ sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 ###############################################################################
 
 # Changing Default Shell to ZSH
-chsh -s /bin/zsh
+# chsh -s /bin/zsh
 
 # Only use UTF-8 in Terminal.app
 # defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Pro theme by default in Terminal.app
-open "${ZSH}/osx/Smyck.terminal"
-sleep 1 # Wait a bit to make sure the theme is loaded
+# open "${ZSH}/osx/Smyck.terminal"
+# sleep 1 # Wait a bit to make sure the theme is loaded
 defaults write com.apple.terminal "Default Window Settings" -string "Smyck"
 defaults write com.apple.terminal "Startup Window Settings" -string "Smyck"
 
