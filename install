@@ -5,4 +5,5 @@
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew install node
 npm install -g grunt-cli
+npm install
 grunt
