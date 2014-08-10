@@ -19,7 +19,6 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 Run this:
 
 ```sh
-xcode-select --install
 git clone https://github.com/kmcginnes/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 grunt --force
