@@ -1,9 +1,9 @@
 # Todos
 
 - [ ] Shell
-	- [ ] ZSH
-	- [ ] Oh My Zsh
-	- [ ] Theme - Smyck
+	- [x] ZSH
+	- [x] Oh My Zsh
+	- [x] Theme - Smyck
 	- [ ] Plugins
 	- [ ] Z
 	- [ ] Shell Highlighting
@@ -11,20 +11,20 @@
 	- [x] RbEnv
 	- [x] Ruby Build
 	- [ ] Jekyll
-- [ ] Node
-	- [ ] Grunt
-- [ ] Vim
-	- [ ] Theme - Smyck
+- [x] Node
+	- [x] Grunt
+- [x] Vim
+	- [x] Theme - Smyck
 	- [ ] Plugins
 - [ ] Git
 	- [x] .gitconfig
 	- [x] .gitignore
 	- [ ] git ignore command line
-- [ ] Sublime Text
-	- [ ] Preferences
-	- [ ] Packages
+- [x] Sublime Text
+	- [x] Preferences
+	- [x] Packages
 - [ ] Scripts
-- [ ] OS X Defaults
+- [x] OS X Defaults
 - [x] OS X Apps
 	- [x] Alfred
 	- [x] Sublime Text

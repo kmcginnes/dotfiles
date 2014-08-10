@@ -21,10 +21,12 @@ module.exports = (grunt) ->
         src: 'sublime-text/User'
         dest: '<%= config.sublime.path_app_support %>/Packages'
     shell:
+      osx_defaults:
+        command: 'source osx/settings.sh'
       sublime_package_control:
         command: 'mkdir -p "<%= config.sublime.path_app_support %>/Installed Packages" && curl -o "<%= config.sublime.path_app_support %>/Installed Packages/Package Control.sublime-package" https://sublime.wbond.net/Package%20Control.sublime-package'
       oh_my_zsh:
-        command: 'curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh'
+        command: 'brew install git'
       brew_git:
         command: 'brew install git'
       brew_git_extras:
@@ -77,6 +79,8 @@ module.exports = (grunt) ->
         command: 'brew cask install font-noto-sans'
       brew_cask_font_source_code_pro:
         command: 'brew cask install font-source-code-pro'
+      theme_terminal:
+        command: 'open "osx/Smyck.terminal"'
 
   grunt.loadTasks 'tasks'
   grunt.loadNpmTasks 'grunt-shell'
