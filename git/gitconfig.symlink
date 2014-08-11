@@ -7,9 +7,9 @@
         helper = osxkeychain
 [alias]
         co = checkout
-        promote = !$ZSH/bin/git-promote
-        wtf     = !$ZSH/bin/git-wtf
-        rank-contributors = !$ZSH/bin/git-rank-contributors
+        promote = !$DOTFILES/bin/git-promote
+        wtf     = !$DOTFILES/bin/git-wtf
+        rank-contributors = !$DOTFILES/bin/git-rank-contributors
         count   = !git shortlog -sn
 
         # Snagged from Ryan Tomayko (http://github.com/rtomayko/dotfiles)
@@ -41,8 +41,8 @@
         
         # pull
         pr = pull --rebase
-        update = !$ZSH/bin/git-svn-update
-        up = !$ZSH/bin/git-svn-update
+        update = !$DOTFILES/bin/git-svn-update
+        up = !$DOTFILES/bin/git-svn-update
 
         #push
         pgm = push github master
@@ -99,7 +99,7 @@
 
         # experimental
         wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-        ship = !$ZSH/bin/git-svn-ship
+        ship = !$DOTFILES/bin/git-svn-ship
         open = !git ls-remote --get-url | sed 's/:/\\//' | sed 's/^git@/https:\\/\\//' | xargs open
         unstage = reset HEAD
         uncommit = reset --soft HEAD^
