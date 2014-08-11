@@ -28,7 +28,7 @@ module.exports = (grunt) ->
       sublime_package_control:
         command: 'mkdir -p "<%= config.sublime.path_app_support %>/Installed Packages" && curl -o "<%= config.sublime.path_app_support %>/Installed Packages/Package Control.sublime-package" https://sublime.wbond.net/Package%20Control.sublime-package'
       oh_my_zsh:
-        command: 'curl -L http://install.ohmyz.sh | sh'
+        command: 'git clone git://github.com/kmcginnes/oh-my-zsh.git ~/.oh-my-zsh'
     brew:
       git: 'git'
       git_extras: 'git-extras'
