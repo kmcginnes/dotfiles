@@ -19,7 +19,7 @@ module.exports = (grunt) ->
           return finalDest
       sublime_user:
         src: 'sublime-text/User'
-        dest: '<%= config.sublime.path_app_support %>/Packages'
+        dest: '<%= config.sublime.path_app_support %>/Packages/User'
     shell:
       theme_terminal:
         command: 'open "osx/Smyck.terminal"'
