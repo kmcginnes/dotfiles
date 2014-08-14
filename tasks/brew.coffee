@@ -1,7 +1,8 @@
 module.exports = (grunt) ->
-  fs = require("fs")
-  path = require("path")
-  chalk = require("chalk")
+  fs = require "fs"
+  path = require "path"
+  chalk = require "chalk"
+  require 'shelljs/global'
 
   grunt.registerMultiTask "brew", "Install utilities with Homebrew.", ->
     cmd = 'brew install ' + this.data

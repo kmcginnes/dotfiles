@@ -23,11 +23,12 @@
     "node": ">= 0.8.0"
   },
   "devDependencies": {
+    "chalk": "^0.5.1",
     "grunt": "^0.4.5",
     "grunt-contrib-symlink": "^0.3.0",
     "grunt-shell": "^0.7.0",
     "grunt-symlink": "^0.4.0",
     "home-dir": "^0.2.0",
-    "chalk": "^0.5.1"
+    "shelljs": "^0.3.0"
   }
 }
