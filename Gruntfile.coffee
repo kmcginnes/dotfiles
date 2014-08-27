@@ -30,10 +30,10 @@ module.exports = (grunt) ->
       oh_my_zsh:
         command: 'git clone git://github.com/kmcginnes/oh-my-zsh.git ~/.oh-my-zsh'
     brew:
-      git: 'git'
-      git_extras: 'git-extras'
-      rbenv: 'rbenv'
-      ruby_build: 'ruby-build'
+      # git: 'git'
+      # git_extras: 'git-extras'
+      # rbenv: 'rbenv'
+      # ruby_build: 'ruby-build'
       # ffmpeg: 'ffmpeg'
       # dos2unix: 'dos2unix'
       cask: 'caskroom/cask/brew-cask'
