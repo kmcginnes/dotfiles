@@ -23,6 +23,8 @@ module.exports = (grunt) ->
     shell:
       theme_terminal:
         command: 'open "osx/Smyck.terminal"'
+      change_shell:
+        command: 'chsh -s /bin/zsh'
       osx_defaults:
         command: 'source osx/settings.sh'
       sublime_package_control:
@@ -34,6 +36,8 @@ module.exports = (grunt) ->
       # git_extras: 'git-extras'
       rbenv: 'rbenv'
       ruby_build: 'ruby-build'
+      plenv: 'plenv'
+      perl_build: 'perl-build'
       ffmpeg: 'ffmpeg'
       dos2unix: 'dos2unix'
       cask: 'caskroom/cask/brew-cask'

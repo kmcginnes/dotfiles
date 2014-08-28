@@ -49,3 +49,8 @@ autoload -U compinit
 compinit
 
 unset config_files
+
+eval "$(plenv init -)"
+
+# PERL_MB_OPT="--install_base \"/Users/krismcginnes/perl5\""; export PERL_MB_OPT;
+# PERL_MM_OPT="INSTALL_BASE=/Users/krismcginnes/perl5"; export PERL_MM_OPT;
