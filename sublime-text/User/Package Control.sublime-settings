@@ -1,14 +1,29 @@
 {
+	"in_process_packages":
+	[
+	],
+	"installed_dependencies":
+	[
+		"0_package_control_loader",
+		"bz2"
+	],
 	"installed_packages":
 	[
 		"auto-save",
 		"Better CoffeeScript",
 		"Chmod",
 		"CoffeeCompile",
+		"Dracula Color Scheme",
 		"F#",
+		"Git Config",
+		"GitGutter",
+		"Github Color Theme",
+		"Gitignore",
 		"Indent XML",
 		"Markdown Preview",
+		"Package Control",
 		"PowerShell",
+		"Predawn",
 		"Sass",
 		"Shell Turtlestein",
 		"SublimeLinter",

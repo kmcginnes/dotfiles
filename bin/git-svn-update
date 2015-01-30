@@ -27,5 +27,5 @@ if updated
 	system "git --no-pager diff --color --stat #{old_head}.. | sed 's/^/  /'"
 
   	puts "Log:".cyan
-  	system "git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit #{old_head}.. | sed 's/^/  /'"
+  	system "git l --abbrev-commit #{old_head}.. | sed 's/^/  /'"
 end

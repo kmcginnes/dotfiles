@@ -38,6 +38,7 @@ module.exports = (grunt) ->
       ruby_build: 'ruby-build'
       plenv: 'plenv'
       perl_build: 'perl-build'
+      go: 'go'
       ffmpeg: 'ffmpeg'
       dos2unix: 'dos2unix'
       cask: 'caskroom/cask/brew-cask'
@@ -45,7 +46,7 @@ module.exports = (grunt) ->
       unofficial: 'caskroom/versions'
       fonts: 'caskroom/fonts'
     brew_cask_app:
-      alfred: 'alfred'
+      # alfred: 'alfred'
       sublime_text_3: 'sublime-text3'
       chrome: 'google-chrome'
       github: 'github'
@@ -57,7 +58,7 @@ module.exports = (grunt) ->
       vmware_fusion: 'vmware-fusion'
       dropbox: 'dropbox'
       flux: 'flux'
-      gfxcardstatus: 'gfxcardstatus'
+      # gfxcardstatus: 'gfxcardstatus'
     brew_cask_font:
       courier_new: 'font-courier-new'
       inconsolata: 'font-inconsolata'

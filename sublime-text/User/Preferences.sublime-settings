@@ -1,5 +1,9 @@
 {
-	"color_scheme": "Packages/User/base16-ocean.dark (SL).tmTheme",
+	"caret_extra_width": 1,
+	"caret_style": "phase",
+	"color_scheme": "Packages/User/SublimeLinter/Galea (SL).tmTheme",
+	"copy_with_empty_selection": false,
+	"drag_text": false,
 	"ensure_newline_at_eof_on_save": true,
 	"file_exclude_patterns":
 	[
@@ -23,14 +27,16 @@
 		"*.psd",
 		"*.db"
 	],
-	"font_size": 13.0,
+	"font_face": "Input Mono",
+	"font_size": 19.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
+		"SublimeLinter"
 	],
 	"open_files_in_new_window": false,
-	"theme": "Spacegray.sublime-theme",
+	"theme": "predawn.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"word_wrap": false
 }

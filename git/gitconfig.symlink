@@ -11,6 +11,7 @@
         wtf     = !$DOTFILES/bin/git-wtf
         rank-contributors = !$DOTFILES/bin/git-rank-contributors
         count   = !git shortlog -sn
+        fuckit  = reset --hard HEAD
 
         # Snagged from Ryan Tomayko (http://github.com/rtomayko/dotfiles)
         # commit
@@ -72,7 +73,8 @@
         lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
         lg = !"git lg1"
         lc = log --stat --summary
-        l = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        l = "!source ~/.githelpers && pretty_git_log"
+        r = "!git l -27"
         new = log master.. --reverse  --color --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr)' --abbrev-commit
         today = log --since=midnight --author='kmcginnes' --oneline
         standup = log --since='1 day ago' --author='kmcginnes' --oneline
@@ -148,7 +150,8 @@
 [diff]
         tool = Kaleidoscope
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
 [branch]
 	autosetuprebase = always
