@@ -12,6 +12,9 @@
         rank-contributors = !$DOTFILES/bin/git-rank-contributors
         count   = !git shortlog -sn
         fuckit  = reset --hard HEAD
+        # bclean  = !git branch --merged master | grep -v '\\* master' | xargs -n 1 git branch -d
+        bclean = "!f() { git branch --merged ${1-master} | grep -v ' ${1-master}$' | xargs -r git branch -d; }; f"
+        bdone = "!f() { git checkout ${1-master} && git up && git bclean ${1-master}; }; f"
 
         # Snagged from Ryan Tomayko (http://github.com/rtomayko/dotfiles)
         # commit
@@ -19,6 +22,7 @@
         cam = !git add -A && git commit -m
         amend = commit --amend            # ammend your last commit
         ammend = commit --amend           # ammend your last commit
+        squash = !git reset --soft master && git add -A && git commit -m
         
         # branch
         b = branch
@@ -26,33 +30,25 @@
         
         # add
         a = add
-        aa = add --update
-        ap = add --patch
         
         # checkout
         co = checkout
         cob = checkout -b
         
-        # fetch
-        f = fetch
-        fo = fetch origin
-
-        # merge
-        m = merge
-        
         # pull
-        pr = pull --rebase
         update = !$DOTFILES/bin/git-svn-update
         up = !$DOTFILES/bin/git-svn-update
+        tpull = tf pull --rebase
+        tu = tupdate
 
-        #push
-        pgm = push github master
-        pom = push origin master
+        # push
+        tpush = tf checkin
+        ts = tship
+        ship = !$DOTFILES/bin/git-svn-ship
 
         # rebase
         r  = rebase
         rm = rebase master
-        rom = rebase origin/master
         ri = rebase --interactive HEAD~10
         rim = rebase --interactive master
         rc = rebase --continue
@@ -66,7 +62,7 @@
         mt = mergetool
         
         # status
-        s = !git status && git stash list
+        s = !git status -s && git stash list
         
         # log
         lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
@@ -85,32 +81,19 @@
         cleanupnow = clean -f -x -d
 
         # stash
-        st = stash save
         # 1. Create a branch named “foobar”
         # 2. Commit any changes on that branch
         # 3. Swap you back to the branch you started on
         save = !sh -c 'export PREV=$(git symbolic-ref HEAD|cut -d/ -f3-) && git checkout -b "$1" && git commit -am "$1" && git checkout "$PREV"'
 
-        # tfs
-        tpush = tf checkin
-        tpull = tf pull --rebase
-
-        # misc
-        pi = cherry-pick
-        ki = stash --keep-index
 
         # experimental
         wipe = !git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard
-        ship = !$DOTFILES/bin/git-svn-ship
         open = !git ls-remote --get-url | sed 's/:/\\//' | sed 's/^git@/https:\\/\\//' | xargs open
         unstage = reset HEAD
         uncommit = reset --soft HEAD^
-        undo = reset --hard HEAD
-        stage = add
-        pop = reset --soft HEAD^
+        undo = !git uncommit && git unstage
         rv = review
-        tu = tupdate
-        ts = tship
         fp = format-patch --stdout
 	test = "!gi() { curl http://www.gitignore.io/api/$@ ;}; gi"
 [color]
@@ -155,3 +138,7 @@
 	smudge = git media smudge %f
 [branch]
 	autosetuprebase = always
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
