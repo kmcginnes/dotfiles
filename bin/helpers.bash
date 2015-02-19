@@ -17,6 +17,10 @@ git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/
 git svn clone --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Kangchenjunga/branches/Vancouver Vancouver
 git svn clone http://phoenix.watchguardvideo.local/reposEng/doc/trunk/Projects/WearableCamera/Requirements WearableCameraRequirements
 
+git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/caliburn MDC
+git svn clone --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin2/WatchGuard DMU
+
+
 git branch elx2 remotes/origin/ELX2_0
 
 svn rm http://phoenix/reposWin/Vermillion/tags/sprint_3_review
