@@ -28,7 +28,7 @@
 		"*.db"
 	],
 	"font_face": "Input Mono",
-	"font_size": 19.0,
+	"font_size": 20.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[
