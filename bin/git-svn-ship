@@ -36,9 +36,7 @@ if stashed
 	puts "Recreating #{current_branch} and unstashing changes".cyan
 	system "git checkout -b #{current_branch}"
 	system "git stash pop --quiet"
-end
-
-if current_branch == "wip"
+elsif current_branch == "wip"
 	puts "Recreating #{current_branch}".cyan
 	system "git checkout -b #{current_branch}"
 end
