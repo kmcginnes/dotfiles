@@ -28,12 +28,12 @@
 		"*.db"
 	],
 	"font_face": "Input Mono",
-	"font_size": 20.0,
+	"font_size": 17.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"SublimeLinter"
+		"SublimeLinter",
+		"Vintage"
 	],
 	"open_files_in_new_window": false,
 	"theme": "predawn.sublime-theme",

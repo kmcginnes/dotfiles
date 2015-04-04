@@ -2,3 +2,4 @@
 *~
 *.swp
 .ruby-version
+sync.ffs_db
