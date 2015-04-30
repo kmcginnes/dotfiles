@@ -23,28 +23,28 @@
         amend = commit --amend            # ammend your last commit
         ammend = commit --amend           # ammend your last commit
         squash = !git reset --soft master && git add -A && git commit -m
-        
+
         # branch
         b = branch
         rename = branch -m
-        
+
         # add
         a = add
-        
+
         # checkout
         co = checkout
         cob = checkout -b
-        
+
         # pull
-        update = !$DOTFILES/bin/git-svn-update
-        up = !$DOTFILES/bin/git-svn-update
+        update = !$DOTFILES/bin/git-svn-update-node
+        up = !$DOTFILES/bin/git-svn-update-node
         tpull = tf pull --rebase
         tu = tupdate
 
         # push
         tpush = tf checkin
         ts = tship
-        ship = !$DOTFILES/bin/git-svn-ship
+        ship = !$DOTFILES/bin/git-svn-ship-node
 
         # rebase
         r  = rebase
@@ -53,17 +53,17 @@
         rim = rebase --interactive master
         rc = rebase --continue
         ra = rebase --abort
-        
+
         # diff
         d = diff
         p = diff --cached # mnemonic: "patch"
         ds = diff --stat # mnemonic: "diff stat"
         dt = difftool --no-prompt
         mt = mergetool
-        
+
         # status
         s = !git status -s && git stash list
-        
+
         # log
         lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
         lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
@@ -74,7 +74,7 @@
         new = log master.. --reverse  --color --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr)' --abbrev-commit
         today = log --since=midnight --author='kmcginnes' --oneline
         standup = log --since='1 day ago' --author='kmcginnes' --oneline
-        
+
         # clean
         prune = fetch --prune
         cleanup = clean -f -x -d --dry-run
@@ -141,4 +141,8 @@
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
+	required = true
+[filter "lfs"]
+	clean = git lfs clean %f
+	smudge = git lfs smudge %f
 	required = true

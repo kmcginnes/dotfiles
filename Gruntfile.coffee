@@ -23,12 +23,12 @@ module.exports = (grunt) ->
     shell:
       theme_terminal:
         command: 'open "osx/Smyck.terminal"'
-      change_shell:
-        command: 'chsh -s /bin/zsh'
-      osx_defaults:
-        command: 'source osx/settings.sh'
-      sublime_package_control:
-        command: 'echo "Installing Sublime Text Package Control" && mkdir -p "<%= config.sublime.path_app_support %>/Installed Packages" && curl -o "<%= config.sublime.path_app_support %>/Installed Packages/Package Control.sublime-package" https://sublime.wbond.net/Package%20Control.sublime-package'
+      # change_shell:
+      #   command: 'chsh -s /bin/zsh'
+      # osx_defaults:
+      #   command: 'source osx/settings.sh'
+      # sublime_package_control:
+      #   command: 'echo "Installing Sublime Text Package Control" && mkdir -p "<%= config.sublime.path_app_support %>/Installed Packages" && curl -o "<%= config.sublime.path_app_support %>/Installed Packages/Package Control.sublime-package" https://sublime.wbond.net/Package%20Control.sublime-package'
       oh_my_zsh:
         command: 'echo "Installing Oh My Zsh" && git clone git://github.com/kmcginnes/oh-my-zsh.git ~/.oh-my-zsh'
     brew:
@@ -45,19 +45,19 @@ module.exports = (grunt) ->
     brew_tap:
       unofficial: 'caskroom/versions'
       fonts: 'caskroom/fonts'
-    brew_cask_app:
+    # brew_cask_app:
       # alfred: 'alfred'
-      sublime_text_3: 'sublime-text3'
-      chrome: 'google-chrome'
-      github: 'github'
-      hipchat: 'hipchat'
-      onepassword: 'onepassword'
-      evernote: 'evernote'
-      the_unarchiver: 'the-unarchiver'
-      vlc: 'vlc'
-      vmware_fusion: 'vmware-fusion'
-      dropbox: 'dropbox'
-      flux: 'flux'
+      # sublime_text_3: 'sublime-text3'
+      # chrome: 'google-chrome'
+      # github: 'github'
+      # hipchat: 'hipchat'
+      # onepassword: 'onepassword'
+      # evernote: 'evernote'
+      # the_unarchiver: 'the-unarchiver'
+      # vlc: 'vlc'
+      # vmware_fusion: 'vmware-fusion'
+      # dropbox: 'dropbox'
+      # flux: 'flux'
       # gfxcardstatus: 'gfxcardstatus'
     brew_cask_font:
       courier_new: 'font-courier-new'

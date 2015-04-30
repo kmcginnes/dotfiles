@@ -1,0 +1,132 @@
+#!/usr/bin/env node
+
+// ship: Ship current branch to development branch
+
+require('shelljs/global');
+var chalk = require('chalk');
+
+// Chalk styles
+
+var title = chalk.blue;
+var step = chalk.underline;
+var error = chalk.red;
+var debug = chalk.dim;
+
+// Helper functions
+
+var exitWithError = function(errorMessage) {
+  console.log(error(errorMessage));
+  exit(1);
+};
+
+var debugLog = function(message) {
+  console.log(debug(message));
+};
+
+var stepLog = function(message) {
+  console.log();
+  console.log(step(message));
+};
+
+var execSafely = function(command) {
+  debugLog('› ' + command);
+  var result = exec(command, {silent: true});
+
+  if (result.code != 0) {
+    var message = 'Executing command "' + command + '" failed with exit code "' + result.code + '".';
+    exitWithError(message + '\n' + result.output);
+  }
+
+  return result.output;
+};
+
+// Let's get started
+// =================
+
+console.log(title('Shipping changes to SVN'));
+
+// Check for the presence of git
+
+if (!which('git')) {
+  exitWithError('Sorry, this script requires git');
+}
+debugLog('git exists');
+
+var current_branch = execSafely('git current-branch').trim();
+debugLog('Current branch is "' + current_branch + '"');
+
+if (current_branch == 'master') {
+  exitWithError('You can not ship from master.');
+}
+
+// Save current head so we can display a log of changes at the end
+var old_head = execSafely('git rev-parse HEAD').trim();
+debugLog('SHA of HEAD before rebasing is "' + old_head + '"');
+
+// Autostash any changes
+stepLog('Auto stashing any changes');
+
+var autoStashOutput = execSafely('git stash save "Auto-stash"').trim();
+var stashed = true;
+if (autoStashOutput == "No local changes to save") {
+  stashed = false;
+}
+debugLog('AutoStash output was "' + autoStashOutput + '"');
+debugLog('Value of stashed is "' + stashed + '"');
+
+// Pull latest from remote into master
+stepLog('Pulling latest remote changes into master');
+console.log(execSafely('git checkout master'));
+console.log(execSafely('git svn rebase'));
+
+// Update working branch with latest SVN changes
+stepLog('Rebasing "' + current_branch + '" with the new changes from master');
+console.log(execSafely('git checkout ' + current_branch));
+console.log(execSafely('git rebase master'));
+
+// ========================================
+
+// Push to SVN
+stepLog('Committing changes to SVN');
+console.log(execSafely('git svn dcommit'));
+
+// Pull our just pushed changes back down from SVN into master
+stepLog('Updating master');
+console.log(execSafely('git checkout master'));
+console.log(execSafely('git svn rebase'));
+
+// Safely delete working branch
+stepLog('Removing ' + current_branch);
+console.log(execSafely('git branch -d ' + current_branch));
+
+// ========================================
+
+if (stashed) {
+  // We had some unfinished business in this branch, so let's recreate the
+  // branch and unstash the unpushed changes
+  stepLog('Recreating ' + current_branch + ' and unstashing auto stashed changes');
+  console.log(execSafely('git checkout -b ' + current_branch));
+  console.log(execSafely('git stash pop --quiet'));
+} else if (current_branch === 'wip') {
+  // The 'wip' branch is a special case for me. I treat master as SVN and wip
+  // as my local master, unless I need something more specific, then I create a
+  // topic branch off master
+  stepLog('Recreating' + current_branch);
+  console.log(execSafely('git checkout -b ' + current_branch));
+}
+
+// If our local head has moved forward any, let's show the files changed and
+// a simple log of the commits
+var new_head = execSafely('git rev-parse HEAD').trim();
+
+if (new_head != old_head) {
+  stepLog('Diffstat:');
+  var command = "git --no-pager diff --color --stat " + old_head + ".. | sed 's/^/  /'";
+  console.log(execSafely(command));
+
+  stepLog('Log:');
+  var command = "git l --abbrev-commit " + old_head + ".. | sed 's/^/  /'";
+  console.log(execSafely(command));
+} else {
+  debugLog('No changes to log');
+}
