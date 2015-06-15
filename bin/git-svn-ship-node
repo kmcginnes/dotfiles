@@ -121,7 +121,7 @@ var new_head = execSafely('git rev-parse HEAD').trim();
 
 if (new_head != old_head) {
   stepLog('Diffstat:');
-  var command = "git --no-pager diff --color --stat " + old_head + ".. | sed 's/^/  /'";
+  var command = "git --no-pager diff --stat --color " + old_head + ".. | sed 's/^/  /'";
   console.log(execSafely(command));
 
   stepLog('Log:');

@@ -3,3 +3,5 @@
 *.swp
 .ruby-version
 sync.ffs_db
+sync.ffs_lock
+*.ffs_tmp

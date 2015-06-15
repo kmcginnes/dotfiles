@@ -28,7 +28,7 @@
 		"*.db"
 	],
 	"font_face": "Menlo",
-	"font_size": 21.0,
+	"font_size": 16.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -36,9 +36,9 @@
 		"Vintage"
 	],
 	"open_files_in_new_window": false,
+	"scroll_past_end": true,
 	"sidebar_medium": true,
 	"tabs_medium": true,
 	"theme": "predawn.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"word_wrap": false
+	"translate_tabs_to_spaces": true
 }
