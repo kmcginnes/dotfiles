@@ -54,10 +54,6 @@ debugLog('git exists');
 var current_branch = execSafely('git current-branch').trim();
 debugLog('Current branch is "' + current_branch + '"');
 
-if (current_branch == 'master') {
-  exitWithError('You can not ship from master.');
-}
-
 // Save current head so we can display a log of changes at the end
 var old_head = execSafely('git rev-parse HEAD').trim();
 debugLog('SHA of HEAD before rebasing is "' + old_head + '"');

@@ -10,6 +10,7 @@ git diff --name-only | grep .config | xargs dos2unix
 
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Vermillion Vermillion
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/FoxBurner.Abstractions FoxBurner.Abstractions
+git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/BasicPlayer BasicPlayer
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/DVR.Configuration DVR.Configuration
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/DVR.Event.Xml DVR.Event.Xml
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/DVR.Protocol DVR.Protocol

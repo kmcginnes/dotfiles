@@ -10,3 +10,5 @@ then
 else
   alias ls="ls -Gla"
 fi
+
+alias gulp='node --harmony '$(which gulp)
