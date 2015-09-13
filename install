@@ -3,7 +3,9 @@
 #
 
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install node
+brew install nvm
+nvm install stable
+nvm use stable
 npm install -g grunt-cli
 npm install
 grunt --stack

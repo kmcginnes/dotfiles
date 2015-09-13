@@ -32,8 +32,10 @@ module.exports = (grunt) ->
       # oh_my_zsh:
         # command: 'echo "Installing Oh My Zsh" && git clone git://github.com/kmcginnes/oh-my-zsh.git ~/.oh-my-zsh'
     brew:
+      archey: 'archey'
       git: 'git'
       # git_extras: 'git-extras'
+      nvm: 'nvm'
       rbenv: 'rbenv'
       ruby_build: 'ruby-build'
       plenv: 'plenv'
@@ -68,4 +70,5 @@ module.exports = (grunt) ->
   grunt.loadTasks 'tasks'
   grunt.loadNpmTasks 'grunt-shell'
 
+  grunt.registerTask 'update', ['symlink']
   grunt.registerTask 'default', ['symlink','shell','brew']
