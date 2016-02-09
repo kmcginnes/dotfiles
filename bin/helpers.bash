@@ -11,10 +11,12 @@ git diff --name-only | grep .config | xargs dos2unix
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Vermillion Vermillion
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/FoxBurner.Abstractions FoxBurner.Abstractions
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/BasicPlayer BasicPlayer
+git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/vlc vlc-package
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/DVR.Configuration DVR.Configuration
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/DVR.Event.Xml DVR.Event.Xml
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/DVR.Protocol DVR.Protocol
 git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/Vista.Protocol.Serial Vista.Protocol.Serial
+git svn clone -s --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Packages/WatchGuard/DeviceDiscovery DeviceDiscovery
 git svn clone --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/Kangchenjunga/branches/Vancouver Vancouver
 git svn clone --prefix=origin/ http://phoenix.watchguardvideo.local/reposWin/InstallerProjects InstallerProjects
 git svn clone http://phoenix.watchguardvideo.local/reposEng/doc/trunk/Projects/WearableCamera/Requirements WearableCameraRequirements

@@ -27,6 +27,7 @@
         # branch
         b = branch
         rename = branch -m
+        br = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) (%(color:green)%(committerdate:relative)%(color:reset))'
 
         # add
         a = add
@@ -34,17 +35,6 @@
         # checkout
         co = checkout
         cob = checkout -b
-
-        # pull
-        update = !$DOTFILES/bin/git-svn-update-node
-        up = !$DOTFILES/bin/git-svn-update-node
-        tpull = tf pull --rebase
-        tu = tupdate
-
-        # push
-        tpush = tf checkin
-        ts = tship
-        ship = !$DOTFILES/bin/git-svn-ship-node
 
         # rebase
         r  = rebase
@@ -71,9 +61,11 @@
         lc = log --stat --summary
         l = "!source ~/.githelpers && pretty_git_log"
         r = "!git l -27"
-        new = log master.. --reverse  --color --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr)' --abbrev-commit
+
+        new = log origin/develop.. --reverse  --color --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr)' --abbrev-commit
         today = log --since=midnight --author='kmcginnes' --oneline
         standup = log --since='1 day ago' --author='kmcginnes' --oneline
+        recent = log --since='5 days ago' --author='kmcginnes' --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)' --all
         codereview = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all --since='2 weeks ago' --author='kmcginnes' --oneline
 
         # clean
@@ -93,7 +85,7 @@
         open = !git ls-remote --get-url | sed 's/:/\\//' | sed 's/^git@/https:\\/\\//' | xargs open
         unstage = reset HEAD
         uncommit = reset --soft HEAD^
-        undo = !git uncommit && git unstage
+        undo = reset HEAD^
         rv = review
         fp = format-patch --stdout
 	test = "!gi() { curl http://www.gitignore.io/api/$@ ;}; gi"
@@ -105,10 +97,10 @@
 [core]
 	excludesfile = /Users/krismcginnes/.gitignore
         editor = vim
-        autocrlf = false
+        autocrlf = input
         ignorecase = true
         whitespace = trailing-space,space-before-tab
-		pager = less -F -X
+        pager = less -F -X
 [apply]
         whitespace = nowarn
 [mergetool]

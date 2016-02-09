@@ -1,0 +1,108 @@
+#!/usr/bin/env node
+
+// ship: Ship current branch to development branch
+
+require('shelljs/global');
+var chalk = require('chalk');
+
+// Chalk styles
+
+var title = chalk.blue;
+var step = chalk.underline;
+var error = chalk.red;
+var debug = chalk.dim;
+
+// Helper functions
+
+var exitWithError = function(errorMessage) {
+  console.log(error(errorMessage));
+  exit(1);
+};
+
+var debugLog = function(message) {
+  console.log(debug(message));
+};
+
+var stepLog = function(message) {
+  console.log();
+  console.log(step(message));
+};
+
+var execSafely = function(command) {
+  debugLog('› ' + command);
+  var result = exec(command, {silent: true});
+
+  if (result.code != 0) {
+    exitWithError('Executing command "' + command + '" failed with exit code "' + result.code + '".');
+  }
+
+  return result.output;
+};
+
+// Let's get started
+// =================
+
+console.log(title('Pulling latest changes'));
+
+// Check for the presence of git
+
+if (!which('git')) {
+  exitWithError('Sorry, this script requires git');
+}
+debugLog('git exists');
+
+var current_branch = execSafely('git current-branch').trim();
+debugLog('Current branch is "' + current_branch + '"');
+
+// Save current head so we can display a log of changes at the end
+var old_head = execSafely('git rev-parse @{u}').trim();
+debugLog('SHA of remote before push is "' + old_head + '"');
+
+// Autostash any changes
+stepLog('Auto stashing any changes');
+
+var autoStashOutput = execSafely('git stash save "Auto-stash"').trim();
+var stashed = true;
+if (autoStashOutput == "No local changes to save") {
+  stashed = false;
+}
+debugLog('AutoStash output was "' + autoStashOutput + '"');
+debugLog('Value of stashed is "' + stashed + '"');
+
+// Pull latest from remote into master
+stepLog('Pulling latest remote changes');
+// console.log(execSafely('git checkout master'));
+console.log(execSafely('git pull --rebase'));
+
+// Push the changes up to the server
+stepLog('Shipping changes to the remote server');
+// console.log(execSafely('git checkout master'));
+console.log(execSafely('git push'));
+
+// Update working branch with latest SVN changes
+// stepLog('Rebasing "' + current_branch + '" with the new changes from master');
+// console.log(execSafely('git checkout ' + current_branch));
+// console.log(execSafely('git rebase master'));
+
+if (stashed) {
+  // We had some unfinished business in this branch, so let's recreate the
+  // branch and unstash the unpushed changes
+  stepLog('Unstashing auto stashed changes');
+  console.log(execSafely('git stash pop --quiet'));
+}
+
+// If our local head has moved forward any, let's show the files changed and
+// a simple log of the commits
+var new_head = execSafely('git rev-parse HEAD').trim();
+
+if (new_head != old_head) {
+  stepLog('Diffstat:');
+  var command = "git --no-pager diff --stat --color " + old_head + ".. | sed 's/^/  /'";
+  console.log(execSafely(command));
+
+  stepLog('Log:');
+  var command = "git l --abbrev-commit " + old_head + ".. | sed 's/^/  /'";
+  console.log(execSafely(command));
+} else {
+  debugLog('No changes to log');
+}

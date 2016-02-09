@@ -1,4 +1,5 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
 	],
@@ -9,12 +10,17 @@
 		"Chmod",
 		"CoffeeCompile",
 		"Dracula Color Scheme",
+		"Emoji",
 		"F#",
 		"Git Config",
 		"GitGutter",
 		"Github Color Theme",
+		"GitHub Flavored Markdown Preview",
 		"Gitignore",
 		"Indent XML",
+		"Jade",
+		"JSX",
+		"Markdown Extended",
 		"Markdown Preview",
 		"Marked App Menu",
 		"Package Control",
