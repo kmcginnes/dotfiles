@@ -1,5 +1,6 @@
 {
-	"color_scheme": "Packages/Predawn/predawn-markdown.tmTheme",
+	//"color_scheme": "Packages/Predawn/predawn-markdown.tmTheme",
+    "color_scheme": "Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme",
 	"draw_indent_guides": false,
 	"extensions":
 	[

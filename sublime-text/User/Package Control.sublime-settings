@@ -22,6 +22,8 @@
 		"JSX",
 		"Markdown Extended",
 		"Markdown Preview",
+		"MarkdownCodeBlockWrapper",
+		"MarkdownEditing",
 		"Marked App Menu",
 		"Package Control",
 		"PowerShell",
@@ -36,6 +38,7 @@
 		"Theme - Centurion",
 		"Theme - Spacegray",
 		"TypeScript",
+		"WordHighlight",
 		"XAML"
 	]
 }

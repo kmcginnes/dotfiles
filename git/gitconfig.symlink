@@ -25,9 +25,8 @@
         squash = !git reset --soft master && git add -A && git commit -m
 
         # branch
-        b = branch
+        b = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) (%(color:green)%(committerdate:relative)%(color:reset))'
         rename = branch -m
-        br = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) (%(color:green)%(committerdate:relative)%(color:reset))'
 
         # add
         a = add
@@ -39,8 +38,8 @@
         # rebase
         r  = rebase
         rm = rebase master
-        ri = rebase --interactive HEAD~10
-        rim = rebase --interactive master
+        ri = rebase --interactive
+        rim = !"git rebase --interactive `git rev-parse --abbrev-ref --symbolic-full-name @{u}`"
         rc = rebase --continue
         ra = rebase --abort
 
@@ -55,23 +54,23 @@
         s = !git status -s && git stash list
 
         # log
-        lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-        lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-        lg = !"git lg1"
+        lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
         lc = log --stat --summary
         l = "!source ~/.githelpers && pretty_git_log"
-        r = "!git l -27"
+        new = !"git new2"
 
-        new = log origin/develop.. --reverse  --color --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr)' --abbrev-commit
-        today = log --since=midnight --author='kmcginnes' --oneline
-        standup = log --since='1 day ago' --author='kmcginnes' --oneline
-        recent = log --since='5 days ago' --author='kmcginnes' --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)' --all
+        new2 = !"git log `git rev-parse --abbrev-ref --symbolic-full-name @{u}`..  --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)'"
+        new3 = !"git diff --stat `git rev-parse --abbrev-ref --symbolic-full-name @{u}`.."
+        today = !"git log --since=midnight --author='kmcginnes' --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)'"
+        standup = log --since='1 day ago' --author='kmcginnes' --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)'
+        recent = log --since='5 days ago' --author='kmcginnes' --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)'
         codereview = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all --since='2 weeks ago' --author='kmcginnes' --oneline
 
         # clean
         prune = fetch --prune
         cleanup = clean -f -x -d --dry-run
         cleanupnow = clean -f -x -d
+        find-crlf = !"git ls-files --eol | grep 'crlf'"
 
         # stash
         # 1. Create a branch named “foobar”
@@ -117,14 +116,18 @@
         # Setting to git 2.0 default to surpress warning message
         default = simple
 [mergetool "Kaleidoscope"]
+        prompt = false
+        keepBackup = false
         cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
         trustexitcode = true
 [merge]
         tool = Kaleidoscope
 [difftool "Kaleidoscope"]
+        prompt = false
         cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [diff]
         tool = Kaleidoscope
+        renames = copies
 [filter "media"]
 	required = true
 	clean = git media clean %f
