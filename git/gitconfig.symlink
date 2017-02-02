@@ -25,7 +25,8 @@
         squash = !git reset --soft master && git add -A && git commit -m
 
         # branch
-        b = for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) (%(color:green)%(committerdate:relative)%(color:reset))'
+	b = branch -vv
+        br = branch --remotes -vv
         rename = branch -m
 
         # add
@@ -55,18 +56,10 @@
 
         # log
         lg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-        lc = log --stat --summary
-        l = "!source ~/.githelpers && pretty_git_log"
-        new = !"git new2"
-
-        fix = "!f() { git fetch && git checkout -b fix/$1 origin/release-3.5.0 && git push origin fix/$1:fix/$1 && git branch fix/$1 -u refs/remotes/origin/fix/$1 }; f"
-
-        new2 = !"git log `git rev-parse --abbrev-ref --symbolic-full-name @{u}`..  --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)'"
-        new3 = !"git diff --stat `git rev-parse --abbrev-ref --symbolic-full-name @{u}`.."
-        today = !"git log --since=midnight --author='kmcginnes' --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)'"
-        standup = log --since='1 day ago' --author='kmcginnes' --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)'
-        recent = log --since='5 days ago' --author='kmcginnes' --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)%C(reset)%C(bold yellow)%d%C(reset)'
-        codereview = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all --since='2 weeks ago' --author='kmcginnes' --oneline
+        lg2 = log --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+        new = "!git lg2 `git rev-parse --abbrev-ref --symbolic-full-name @{u}`.."
+        diff-dev = "!git lg2 develop.."
+        dd = "!git diff-dev"
 
         # clean
         prune = fetch --prune
@@ -90,6 +83,7 @@
         rv = review
         fp = format-patch --stdout
 	test = "!gi() { curl http://www.gitignore.io/api/$@ ;}; gi"
+        up = "!git pull --rebase --stat && git lg2 ORIG_HEAD.."
 [color]
         diff = auto
         status = auto
@@ -150,3 +144,5 @@
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+[pull]
+	rebase = true

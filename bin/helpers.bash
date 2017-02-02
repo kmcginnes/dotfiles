@@ -1,9 +1,10 @@
 find ./ -type f -exec unix2dos {} \;
 
-find ./ -name "*.config" -exec unix2dos {} \;
+find ./ -name "*.sln" -exec unix2dos {} \;
 find ./ -name "*.csproj" -exec unix2dos {} \;
+find ./ -name "*.config" -exec unix2dos {} \;
 
-http://stackoverflow.com/questions/7068179/convert-line-endlings-for-whole-directory-tree-git
+# http://stackoverflow.com/questions/7068179/convert-line-endlings-for-whole-directory-tree-git
 
 git diff --name-only | grep .csproj | xargs dos2unix
 git diff --name-only | grep .config | xargs dos2unix

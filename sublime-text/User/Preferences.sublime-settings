@@ -27,8 +27,8 @@
 		"*.psd",
 		"*.db"
 	],
-	"font_face": "Hack",
-	"font_size": 14.0,
+	"font_face": "SF Mono",
+	"font_size": 16.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[

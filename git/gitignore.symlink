@@ -6,3 +6,5 @@ sync*.ffs_db
 sync*.ffs_lock
 *.ffs_tmp
 _gsdata_
+.sync
+Icon
