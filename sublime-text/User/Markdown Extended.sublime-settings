@@ -1,11 +1,9 @@
 {
-    // "color_scheme": "Packages/Predawn/predawn-markdown.tmTheme",
-    "draw_indent_guides": false,
+	"draw_indent_guides": false,
 	"extensions":
 	[
-		"md",
-        "markdown"
+		"markdown"
 	],
-    "trim_trailing_white_space_on_save": false,
-    "word_wrap": true
+	"trim_trailing_white_space_on_save": false,
+	"word_wrap": true
 }
