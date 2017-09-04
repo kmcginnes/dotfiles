@@ -56,3 +56,7 @@ eval "$(plenv init -)"
 # PERL_MM_OPT="INSTALL_BASE=/Users/krismcginnes/perl5"; export PERL_MM_OPT;
 
 archey -c
+
+# tabtab source for electron-forge package
+# uninstall by removing these lines or running `tabtab uninstall electron-forge`
+[[ -f /Users/krismcginnes/.nvm/versions/node/v7.10.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/krismcginnes/.nvm/versions/node/v7.10.0/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh

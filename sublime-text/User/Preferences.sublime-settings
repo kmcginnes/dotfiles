@@ -1,7 +1,21 @@
 {
+	"added_words":
+	[
+		"log4net",
+		"json",
+		"dev",
+		"config",
+		"app",
+		"serializer",
+		"mockable",
+		"versioning",
+		"Sell's",
+		"Chocolatey",
+		"admin"
+	],
 	"caret_extra_width": 1,
 	"caret_style": "phase",
-	"color_scheme": "Packages/User/SublimeLinter/Galea (SL).tmTheme",
+	"color_scheme": "Packages/Theme - One Dark/One Dark.tmTheme",
 	"copy_with_empty_selection": false,
 	"drag_text": false,
 	"ensure_newline_at_eof_on_save": true,
@@ -28,7 +42,7 @@
 		"*.db"
 	],
 	"font_face": "SF Mono",
-	"font_size": 14.0,
+	"font_size": 15.0,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -39,6 +53,6 @@
 	"scroll_past_end": true,
 	"sidebar_large": true,
 	"tabs_medium": true,
-	"theme": "predawn.sublime-theme",
+	"theme": "One Dark.sublime-theme",
 	"translate_tabs_to_spaces": true
 }

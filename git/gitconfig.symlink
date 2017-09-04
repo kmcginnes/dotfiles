@@ -92,7 +92,7 @@
 [core]
 	excludesfile = /Users/krismcginnes/.gitignore
         editor = vim
-        autocrlf = input
+        autocrlf = false
         ignorecase = true
         whitespace = trailing-space,space-before-tab
         pager = less -F -X

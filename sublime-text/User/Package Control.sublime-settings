@@ -5,10 +5,12 @@
 	],
 	"installed_packages":
 	[
+		"AlignTab",
 		"auto-save",
 		"Better CoffeeScript",
 		"Chmod",
 		"CoffeeCompile",
+		"Color Highlighter",
 		"Dracula Color Scheme",
 		"Emoji",
 		"F#",
@@ -24,6 +26,7 @@
 		"Markdown Preview",
 		"MarkdownCodeBlockWrapper",
 		"MarkdownEditing",
+		"MarkdownHighlighting",
 		"Marked App Menu",
 		"Package Control",
 		"PowerShell",
@@ -36,6 +39,7 @@
 		"SublimeLinter-xmllint",
 		"Swift",
 		"Theme - Centurion",
+		"Theme - One Dark",
 		"Theme - Spacegray",
 		"TypeScript",
 		"WordHighlight",

@@ -1,10 +1,16 @@
 {
-	"color_scheme": "Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme",
-	"draw_indent_guides": false,
+    "color_scheme": "Packages/Theme - One Dark/One Dark.tmTheme",
+	"draw_centered": true,
+    "draw_indent_guides": false,
 	"extensions":
 	[
 		"md"
 	],
+    "font_face": "SF Mono",
+    "font_size": 16.0,
+    "highlight_line": true,
+    "spell_check": true,
 	"trim_trailing_white_space_on_save": false,
-	"word_wrap": true
+	"wrap_width": 80,
+    "word_wrap": true
 }
